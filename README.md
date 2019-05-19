@@ -11,7 +11,7 @@ Definiciones:
   ```
   Ejemplo:
    ```
-  curl -X POST -H "Content-Type: application/json" -d "{ \"term\" : \"Terminal\"}" http://localhost:8080/api/search
+  curl -X POST -H "Content-Type: application/json" -d "{ \"term\" : \"Terminal\"}" https://www.zarpapp.com/api/search
   ``` 
   La api respondera el termino dado de alta con el siguiente formato:
   ```json
@@ -28,7 +28,7 @@ Definiciones:
     ```
   Ejemplo:
   ```
-  curl -X DELETE http://localhost:8080/api/search/6
+  curl -X DELETE http://www.zarpapp.com/api/search/6
   ```
   La respuesta tiene status 200 en caso de exito. Si el termino no exista no se considera error.
   
@@ -38,7 +38,7 @@ Definiciones:
     ```
   Ejemplo:
     ``` 
-  http://localhost:8080/api/search?term=al
+  http://www.zarpapp.com/api/search?term=al
     ```
   La api respondera un json con una coleccion de terminos con el siguiente formato:
   ```json
