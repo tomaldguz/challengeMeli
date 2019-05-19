@@ -20,10 +20,10 @@ public class SearchDAOImp extends DAOImp<Search, Long> implements SearchDAO {
     public Collection<Search> findLike(String term){
         try {
             Session session = getSessionFactory().getCurrentSession();
-            String strQuery = "select s from Search s  where lower(s.term) LIKE :term";
+            String strQuery = "select s from Search s  where s.term LIKE :term";
 
             Query query = session.createQuery(strQuery);
-            query.setParameter("term",term.toUpperCase() + "%");
+            query.setParameter("term",term.toLowerCase() + "%");
             query.setMaxResults(100);
 
             List<Search> entities = query.list();
