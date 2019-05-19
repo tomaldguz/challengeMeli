@@ -18,7 +18,8 @@ public class ServiceException extends RuntimeException {
     public enum Code{
         UNKNOWN_ERROR,
         DAOEXCEPTION,
-        OBJECT_NOT_FOUND
+        OBJECT_NOT_FOUND,
+        MISSING_PARAMETER
     }
 
     @JsonView(View.Exception.class)

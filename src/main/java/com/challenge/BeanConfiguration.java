@@ -7,12 +7,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
 import org.hibernate.SessionFactory;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.web.servlet.ErrorPage;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -61,6 +64,17 @@ public class BeanConfiguration {
         HibernateTransactionManager txManager = new HibernateTransactionManager();
         txManager.setSessionFactory(s);
         return txManager;
+    }
+
+    @Bean
+    public EmbeddedServletContainerCustomizer containerCustomizer() {
+
+        return container -> {
+
+            ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/index.html");
+            ErrorPage error401Page = new ErrorPage(HttpStatus.UNAUTHORIZED, "/index.html");
+            container.addErrorPages(error401Page, error404Page);
+        };
     }
 
     @Bean
