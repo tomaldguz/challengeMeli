@@ -29,7 +29,7 @@ Definiciones:
     ```
   Ejemplo:
   ```
-  curl -X DELETE http://www.zarpapp.com/api/search/6
+  curl -X DELETE https://www.zarpapp.com/api/search/6
   ```
   La respuesta tiene status 200 en caso de exito. Si el termino no exista no se considera error.
   
@@ -39,7 +39,7 @@ Definiciones:
     ```
   Ejemplo:
     ``` 
-  http://www.zarpapp.com/api/search?term=al
+  https://www.zarpapp.com/api/search?term=al
     ```
   La api respondera un json con una coleccion de terminos con el siguiente formato:
   ```json
