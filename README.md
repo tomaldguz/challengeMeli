@@ -1,6 +1,7 @@
 Repositorio para challenge de mercado libre.
 
 Definiciones:
+- Host: www.zarpapp.com
 - Endpoint: /api/search
 - Metodos disponibles: POST, GET, DELETE
 - POST: Se da de alta un nuevo termino en la base de datos de autocompletado.  El Body del request debe tener un termino de busca con el siguiente formato:
